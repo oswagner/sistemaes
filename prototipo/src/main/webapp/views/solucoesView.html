@@ -1,0 +1,41 @@
+<div class="row well well-sm">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div class="col-md-1"></div>
+			<div class="col-md-4">
+				<label for="nome">Nome</label> <input type="text" disabled ng-model="empresaLive.nome" class="form-control" id="nome"> <label
+					for="endereco">Endereço</label> <input type="text" disabled ng-model="empresaLive.endereco" class="form-control" id="endereco"> <label
+					for="estados">Estado</label> <input type="text" disabled ng-model="empresaLive.estado" class="form-control" id="endereco"> <label
+					for="cidade">Cidade</label> <input type="text" disabled ng-model="empresaLive.cidade" class="form-control" id="endereco"> <label
+					for="email">Email</label> <input type="email" disabled ng-model="empresaLive.email" class="form-control" id="email">
+			</div>
+			<div class="col-md-2"></div>
+			<div class="col-md-4">
+				<label for="qtdFuncionariosTi"> Número de funcionários na equipe de desenvolvimento de software</label> <input type="text" id="qtdFuncionariosTi"
+					disabled ng-model="empresaLive.qtdFuncionariosTi" class="form-control" id="qtdFuncionariosTi"> <label for="qtdFuncionarios">
+					Número de funcionários na empresa</label> <input type="text" id="qtdFuncionarios" disabled ng-model="empresaLive.qtdFuncionarios" class="form-control"
+					id="qtdFuncionarios"> <label>A empresa usa métodos ágeis para desenvolvimento de software:</label>
+				<div class="checkbox">
+					<label> <input type="radio" disabled name="isAgil" ng-model="empresaLive.isAgil" value="true"> Sim
+					</label>
+				</div>
+				<div class="checkbox">
+					<label> <input type="radio" disabled name="isNotAgil" ng-model="empresaLive.isAgil" value="false"> Não
+					</label>
+				</div>
+				<label for="agilTempo">Utiliza a X tempo</label> <input type="text" disabled id="agilTempo" ng-model="empresaLive.agilTempo" class="form-control"
+					id="agilTempo" disabled>
+			</div>
+		</div>
+
+		<!-- List group -->
+		<div class="list-group well well-sm" ng-repeat="solutionPerProblem in solutionsToFilter() | filter:filterSolutions">
+			<h4>Problema: {{$index+1}} - {{solutionPerProblem.nomeProblema}}</h4>
+			<a class="list-group-item" ng-repeat="solution in solutionList | filter:{nomeProblema: solutionPerProblem.nomeProblema}">
+				<h5 class="list-group-item-heading">{{solution.nome}}</h5>
+				<h5 class="list-group-item-heading">{{solution.metodologia}}</h5>
+				<p class="list-group-item-text">{{solution.descricao}}</p>
+			</a>
+		</div>
+	</div>
+</div>

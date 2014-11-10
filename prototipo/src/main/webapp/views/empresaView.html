@@ -1,0 +1,83 @@
+<div>
+	<div class="row well well-sm">
+		<form role="form-horizontal">
+			<div class="col-md-1"></div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="nome">Nome</label> <input type="text" ng-model="empresa.nome" class="form-control" id="nome" placeholder="Digite o nome da empresa">
+				</div>
+				<div class="form-group">
+					<label for="endereco">Endereço</label> <input type="text" ng-model="empresa.endereco" class="form-control" id="endereco"
+						placeholder="Digite o endereço da empresa">
+				</div>
+
+				<div class="form-group">
+					<label for="estados">Estado</label> <select id="estados" ng-model="empresa.estado" class="form-control">
+						<option ng-selected="{{empresa.estado == estado.nome}}" ng-repeat="estado in estados" value="{{estado.nome}}">{{estado.sigla}} -
+							{{estado.nome}}</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="cidade">Cidade</label> <select id="cidade" ng-model="empresa.cidade" class="form-control">
+						<option ng-selected="{{empresa.cidade == cidade}}" ng-repeat="cidade in cidades" value="{{cidade}}">{{cidade}}</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="email">Email</label> <input type="email" ng-model="empresa.email" class="form-control" id="email" placeholder="Digite seu email">
+				</div>
+			</div>
+			<div class="col-md-2"></div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="qtdFuncionariosTi"> Qual o número de funcionários na equipe de desenvolvimento de software?</label> <input type="text"
+						id="qtdFuncionariosTi" ng-model="empresa.qtdFuncionariosTi" class="form-control" id="qtdFuncionariosTi"
+						placeholder="Digite o número de funcionários">
+				</div>
+
+				<div class="form-group">
+					<label for="qtdFuncionarios"> Qual é o número de funcionários na empresa?</label> <input type="text" id="qtdFuncionarios"
+						ng-model="empresa.qtdFuncionarios" class="form-control" id="qtdFuncionarios" placeholder="Digite o número de funcionários">
+				</div>
+
+				<div class="form-group">
+					<label>A empresa usa métodos ágeis para desenvolvimento de software?</label>
+					<div class="checkbox">
+						<label> <input type="radio" name="isAgil" ng-model="empresa.isAgil" value="true"> Sim
+						</label>
+					</div>
+					<div class="checkbox">
+						<label> <input type="radio" name="isNotAgil" ng-model="empresa.isAgil" value="false"> Não
+						</label>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="agilTempo"> Há quanto tempo?</label> <input type="text" id="agilTempo" ng-model="empresa.agilTempo" class="form-control"
+						id="agilTempo" disabled>
+				</div>
+
+				<button type="submit" class="btn btn-default" ng-click="submit($event)">Avançar</button>
+			</div>
+		</form>
+	</div>
+</div>
+<script>
+    $("input[name='isAgil']").on('click', function() {
+	if ($("input[name='isAgil']").is(':checked')) {
+	    $('#agilTempo').attr('disabled', false)
+	} else {
+	    $('#agilTempo').attr('disabled', true)
+	}
+
+    });
+
+    $("input[name='isNotAgil']").on('click', function() {
+	if ($("input[name='isNotAgil']").is(':checked')) {
+	    $('#agilTempo').attr('disabled', true)
+	} else {
+	    $('#agilTempo').attr('disabled', false)
+	}
+
+    });
+</script>

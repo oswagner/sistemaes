@@ -1,0 +1,50 @@
+<div class="row">
+	<div class="well">
+		<div id="bottomRow" class="btn-toolbar pull-right">
+			<div class="btn-group">
+				<button class="btn btn-default btn-small" type="button" ng-click="findSolutions()">Encontrar Soluções</button>
+			</div>
+		</div>
+		<label>Filtrar:</label> <input type="text" ng-model="searchProblem" class="form-control input-sm min">
+		<div id="bottomRow" class="btn-toolbar" role="toolbar">
+			<div class="btn-group">
+				<button class="btn btn-default btn-small" type="button" ng-click="filterBy('Pessoas')">Pessoas</button>
+			</div>
+			<div class="btn-group">
+				<button class="btn btn-default btn-small" type="button" ng-click="filterBy('Codificação')">Codificação</button>
+			</div>
+			<div class="btn-group">
+				<button class="btn btn-default btn-small" type="button" ng-click="filterBy('Comunicação')">Comunicação</button>
+			</div>
+			<div class="btn-group">
+				<button class="btn btn-default btn-small" type="button" ng-click="filterBy('Gerência')">Gerência</button>
+			</div>
+		</div>
+
+		<div class="panel-group" id="accordion">
+			<div class="panel panel-default" ng-repeat="problem in problems | filter:searchProblem">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#{{$index}}"> {{problem.categoria}} </a>
+					</h4>
+				</div>
+				<div class="panel-body">
+					<div class="list-group">
+						<a class="list-group-item">
+							<h5 class="list-group-item-heading">{{problem.id}} - {{problem.nome}}</h5>
+						</a>
+						<div id="topRow" class="btn-toolbar pull-right" role="toolbar">
+							<button class="btn btn-default btn-small" type="button" ng-click="addProblem($index+1, $event)">
+								<span class="glyphicon glyphicon-ok"></span>
+							</button>
+
+							<button class="btn btn-default btn-small btn-danger" type="button" ng-click="removeProblem($index+1)">
+								<span class="glyphicon glyphicon-remove"></span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

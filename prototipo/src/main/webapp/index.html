@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="prototipo">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Sistema Especialista em Práticas Ágeis</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap Production -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
+
+<link rel="stylesheet" href="libs/bootstrap-3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="libs/bootstrap-3.2.0/css/bootstrap.css.map">
+<script src="libs/jquery/jquery-2.1.1-min.js"></script>
+<script src="libs/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+
+
+
+<!-- Aplication CSS -->
+<link rel="stylesheet" href="app.css" />
+<!-- AngularJS lib -->
+<script src="libs/angular/angular.min.js"></script>
+<!-- ApplicationJS -->
+<script src="app.js"></script>
+<script src="views/contentController.js"></script>
+</head>
+<body ng-controller="homeController">
+	<div id="topRow" class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-1"></div>
+		<div class="col-md-1"></div>
+		<div class="col-md-9">
+			<ul class="nav nav-pills">
+				<li name="activeHover" class="col-md-3"><a id="empresas" href="#" ng-click="updateTemplate($event)">Empresa</a></li>
+				<li name="activeHover" class="col-md-3"><a id="problemas" href="#" ng-click="updateTemplate($event)">Problemas</a></li>
+				<li name="activeHover" class="col-md-3"><a id="solucoes" href="#" ng-click="updateTemplate($event)">Solucões</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div ng-controller="contentController" class="container container-fluid">
+		<ng-include src="template.content"></ng-include>
+	</div>
+</body>
+</html>
+<script>
+    // set active na tab;
+    $("li[name='activeHover']").hover(function() {
+	$(this).addClass("active");
+    }, function() {
+	$(this).removeClass("active");
+    })
+</script>

@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+
+#topRow {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#bottomRow {
+	margin-bottom: 10px;
+}
+
+
+
+.pull-left {
+	float: left !important;
+}
+
+.pull-right {
+	float: right !important;
+}
+
+.min {
+	width: 250px;
+	margin-bottom: 10px;
+}
+
+.btn-default,.btn-primary,.btn-success,.btn-info,.btn-warning,.btn-danger {
+    border-radius:23px;
+}
